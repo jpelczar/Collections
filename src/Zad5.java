@@ -4,35 +4,28 @@ public class Zad5 {
 
         Queue<Person> personQueue = new ArrayQueue<>();
 
-        Person zosia = new Person("Zosia", Sex.FEMALE);
+        queueManager(new Person("Zosia", Sex.FEMALE), personQueue);
+        queueManager(new Person("Basia", Sex.FEMALE), personQueue);
+        queueManager(new Person("Marek", Sex.MALE), personQueue);
+        queueManager(new Person("Krzysztof", Sex.MALE), personQueue);
+        queueManager(new Person("Tomek", Sex.MALE), personQueue);
+        queueManager(new Person("Marysia", Sex.FEMALE), personQueue);
+    }
 
-        if (personQueue.isEmpty()) {
-            personQueue.push(zosia);
+    private static void queueManager(Person personToAdd,
+                                     Queue<Person> personQueue) {
+        if (personQueue.isEmpty()) { //Sprawdzamy czy jest ktoś w kolejce do pary
+            personQueue.push(personToAdd); //Jeśli nie to idziemy do kolejki
         } else {
-            Person personFromQueue = personQueue.peek();
-            if (personFromQueue.getSex().equals(Sex.MALE)) {
-                personFromQueue = personQueue.poll();
-                System.out.println(zosia.getName() + " "
-                        + personFromQueue.getName());
+            Person personFromQueue = personQueue.peek(); //Podgladamy osobe z kolejki
+            if (personFromQueue.getSex() != personToAdd.getSex()) { //Sprawdzamy czy osoba z kolejki jest płci przeciwnej
+                personFromQueue = personQueue.poll(); //jeśli tak to ściągamy ją z kolejki i wypisujemy pare
+                System.out.println(personFromQueue.getName() + " "
+                        + personToAdd.getName());
             } else {
-                personQueue.push(zosia);
+                //jeśli nie to idzimy do kolejki
+                personQueue.push(personToAdd);
             }
         }
-
-        Person marek = new Person("Marek", Sex.MALE);
-
-        if (personQueue.isEmpty()) {
-            personQueue.push(marek);
-        } else {
-            Person personFromQueue = personQueue.peek();
-            if (personFromQueue.getSex().equals(Sex.FEMALE)) {
-                personFromQueue = personQueue.poll();
-                System.out.println(marek.getName() + " "
-                        + personFromQueue.getName());
-            } else {
-                personQueue.push(marek);
-            }
-        }
-
     }
 }

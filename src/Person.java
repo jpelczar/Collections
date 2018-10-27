@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Person {
     private String name;
     private Sex sex;
@@ -21,5 +23,18 @@ public class Person {
 
     public void setSex(Sex sex) {
         this.sex = sex;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof  Person) {
+            boolean isEqualName = name
+                    .equals(((Person) obj).getName());
+            boolean isEqualSex = (sex == ((Person) obj).getSex());
+
+            return isEqualName && isEqualSex;
+        } else {
+            return false;
+        }
     }
 }
