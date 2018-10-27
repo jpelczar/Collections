@@ -1,13 +1,13 @@
-public interface Queue {
+public interface Queue<T> {
 
     //Dodanie elementu
-    void push(int element);
+    void push(T element);
 
     //Pobranie wartości i usunięcie
-    int poll();
+    T poll();
 
     //Pobranie bez usunięcia
-    int peek();
+    T peek();
 
     //Sprawdzenie czy jest pusta
     boolean isEmpty();

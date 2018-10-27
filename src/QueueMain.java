@@ -1,7 +1,7 @@
 public class QueueMain {
 
     public static void main(String[] args) {
-        Queue queue = new ArrayQueue();
+        Queue<Integer> queue = new ArrayQueue<>();
 
         queue.push(78);
         queue.push(1);
