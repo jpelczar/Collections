@@ -9,9 +9,15 @@ public class StackMain {
             System.out.println("Poll: " + stack.poll());
         }
 
-        while (true) {
-            System.out.println("Stack value: " + stack.pop());
-        }
+        System.out.println("AApre");
+
+        stack.push("A: " + 17);
+
+        System.out.println("AApre");
+
+//        while (true) {
+//            System.out.println("Stack value: " + stack.pop());
+//        }
     }
 
 }
