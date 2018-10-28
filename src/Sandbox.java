@@ -138,6 +138,13 @@ public class Sandbox {
 
         hashMap.forEach((key, value) -> System.out.println("Key: " + key + " Value: " + value));
 
+        System.out.println("*****************************************");
+
+        Set<String> keySet = hashMap.keySet();
+
+        for (String key : keySet) {
+            System.out.println(hashMap.get(key));
+        }
     }
 
 }
